@@ -11,13 +11,11 @@ const client = new Client({
   });
 
 const searchData = process.argv.slice(2);
-// console.log("=====typeof ", typeof searchData);
 
 const query = 'SELECT * FROM famous_people WHERE first_name LIKE $1 OR last_name LIKE $1';
 
 const queryHandler = (err,res) => {
     if(err) return err.stack;
-   
     console.log(`Found ${res.rowCount} person(s) by the name '${searchData}'`);
     if(res.rowCount){
         if(res.rowCount > 1){
