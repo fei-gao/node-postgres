@@ -16,9 +16,9 @@ const knex = require('knex')({
     }
   });
 
-const newPeople = {first_name: `${first_name}`, last_name: `${last_name}`, birthdate: `${birthdate}`};
-// console.log("type----", typeof newPeople);
-  knex('famous_people').insert(newPeople)
+const newPerson = {first_name: `${first_name}`, last_name: `${last_name}`, birthdate: `${birthdate}`};
+console.log("type----", typeof newPerson);
+  knex('famous_people').insert(newPerson)
   .asCallback(function(err, result){
     if (err) {
         return console.error(err);
@@ -27,3 +27,6 @@ const newPeople = {first_name: `${first_name}`, last_name: `${last_name}`, birth
     .then(console.log);
     }
   })
+
+// knex('famous_people').where({id: 6}).del()
+// .then(console.log);
